@@ -1,2 +1,0 @@
-﻿
-fetch(https://formspree.io/f/xyzwywwr', {
