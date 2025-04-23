@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>أقرب الموزعين</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f7f7f7;
+    }
+    .container {
+      max-width: 600px;
+    }
+    h1 {
+      font-size: 40px;
+      margin-bottom: 30px;
+    }
+    button {
+      font-size: 20px;
+      padding: 15px 30px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>تعرّف على أقرب الموزعين لك</h1>
+    <button onclick="getLocation()">ابدأ الآن</button>
+  </div>
+
+  <script>
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var lat = position.coords.latitude;
+          var lon = position.coords.longitude;
+          // يفتح خرائط Google بموقع الزائر
+          window.location.href = `https://www.google.com/maps?q=${lat},${lon}`;
+        }, function(error) {
+          alert("تعذر الحصول على الموقع.");
+        });
+      } else {
+        alert("متصفحك لا يدعم تحديد الموقع.");
+      }
+    }
+  </script>
+
+</body>
+</html>
